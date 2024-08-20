@@ -1,0 +1,110 @@
+{% extends 'base.html' %} 
+{% load humanize %}
+
+{% block title %} | Welcome {% endblock %}
+
+{% block content %}
+<!-- Showcase -->
+<section id="showcase">
+  <div class="container text-center">
+    <div class="home-search p-5">
+      <div class="overlay p-5">
+        <h1 class="display-4 mb-4">
+          Buying Domains Just Got So Easy
+        </h1>
+        <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
+          voluptatum tempore! Consectetur, id commodi!</p>
+        <div class="search">
+          <form action="{% url 'search' %}">
+            <!-- Form Row 1 -->
+            <div class="form-row">
+              <div class="col-md-12 mb-4">
+                <label class="sr-only">Keywords</label>
+                <input type="text" name="keywords" class="form-control" placeholder="Domain Name">
+              </div>
+
+              
+
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-block mt-4" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Domains -->
+<section id="listings" class="py-5">
+  <div class="container">
+    <h3 class="text-center mb-3">Latest Domains</h3>
+    <div class="row">
+      <!-- Listing  -->
+      {% for domain in domains %}
+      {% if domain %}
+      <div class="col-md-6 col-lg-4 mb-4" >
+        <div class="card listing-preview" >
+          <img class="card-img-top" src="{{domain.photo.url}}" alt="">
+          <div class="card-img-overlay">
+            
+          </div>
+          <a href="{% url 'domain' domain.id %}">
+          <div class="card-body">
+            <div class="listing-heading text-center">
+              <h4 class="text-primary">{{domain.title}}</h4>
+            </a>  
+            </div>
+            <hr>
+            <div class="row py-1 text-secondary">
+              <div class="col-6">
+                <i class="fas fa-money-bill-alt"></i> Price: ${{domain.price | intcomma}}
+              </div>
+              <div class="col-6">
+                <i class="fas fa-th-large"></i> Category: {{domain.category}}</div>
+            </div>
+            <div class="row py-2 text-secondary">
+             
+               
+              <div class="col-6">
+                <i class="fas fa-clock"></i> Listed :{{domain.add_date | naturalday}}</div>
+            </div>
+            <hr>
+            
+            <a href="" class="btn btn-primary btn-block">Buy Now</a>
+            <a href="{% url 'domain' domain.id %}" class="btn btn-primary btn-block">Make Offer</a>
+          </div>
+        </div>
+      </div>      
+      {% endif %}
+      {% endfor %}
+                  
+                  
+      
+<section id="services" class="py-5 bg-secondary text-white">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <i class="fa-solid fa-shop fa-4x mr-4"></i>
+        <hr>
+        <h3>Buy Domains</h3>
+        <p>Our platform offers an easy and secure way to purchase high-quality domain names that perfectly match your needs. Whether you're launching a new venture or rebranding, we've got you covered.</p>
+      </div>
+      <div class="col-md-4">
+        <i class=" fa-regular fa-envelope fa-4x mr-4"></i>
+        <hr>
+        <h3>Lead Generation</h3>
+        <p>Maximize your online presence with our expert lead generation services. We help you connect with potential customers and grow your business through strategic domain acquisitions.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="fa-solid fa-globe fa-4x mr-4"></i>
+        <hr>
+        <h3>Website Development</h3>
+        <p>Bring your domain to life with our professional website development services. From design to deployment, we create stunning websites that drive traffic and convert visitors into customers.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+{% endblock %}  

@@ -1,0 +1,98 @@
+{% extends 'base.html' %} {% block title %} | About Us {% endblock %} 
+{% block content %}
+{% load static %}
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+	<div class="container">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="{% url 'index' %}"> <i class="fas fa-home"></i> Home</a>
+				</li>
+				<li class="breadcrumb-item active">About</li>
+			</ol>
+		</nav>
+	</div>
+</section>
+
+<section id="about" class="py-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h2>Find The Perfect Domain For Your Business</h2>
+				<p class="lead">
+					Geo domains are incredibly valuable assets for businesses looking to
+					target specific regions or local markets. By owning a domain that
+					includes geographic keywords, you can enhance your brand’s visibility
+					and credibility within a particular area. Geo domains help customers
+					find local services more easily, boost search engine rankings, and
+					establish a strong regional presence that competitors will find hard
+					to match.
+				</p>
+				<img
+					src="{% static '/img/about.jpg' %}"
+					alt="About Us"
+					class="img-fluid mt-3"
+				/>
+				<p class="mt-4">
+					At our company, we specialize in connecting you with premium geo
+					domains that can propel your business to new heights. Whether you're
+					looking to dominate a city, state, or country-specific market, we have
+					the expertise and selection to make it happen. Our team is dedicated
+					to helping you find the domain that aligns perfectly with your
+					business goals.
+				</p>
+			</div>
+			<div class="col-md-4">
+				{% for employee in employees %} {% if employee.is_mvp %}
+				<div class="card">
+					<img
+						class="card-img-top"
+						src="{{employee.photo.url}}"
+						alt="{{employee}}'s Photo"
+					/>
+					<div class="card-body">
+						<h5 class="card-title">Employee Of The Month</h5>
+						<h6 class="text-secondary">{{employee}}</h6>
+						<p class="card-text">
+							{{employee.first_name}} has demonstrated exceptional dedication
+							and performance this month, playing a crucial role in our success.
+							Their efforts have not only driven results but also set a high
+							standard for the entire team.
+						</p>
+					</div>
+				</div>
+				{% endif %} {% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Team -->
+<section id="team" class="py-5">
+	<div class="container">
+		<h2 class="text-center">Our Team</h2>
+		<div class="row text-center">
+			{% for employee in employees %} {% if employee %}
+			<div class="col-md-4">
+				<img
+					src="{{employee.photo.url}}"
+					alt="{{employee}}'s Photo"
+					class="rounded-circle mb-3"
+				/>
+				<h4>{{employee}}</h4>
+				<p class="text-success">{{employee.job_title}}</p>
+				<hr />
+				<p><i class="fas fa-phone"></i> (333)-333-3333</p>
+				<p>
+					<a href="mailto:{{employee.email}}">
+						<i class="fas fa-envelope-open"></i>Email {{employee.first_name}}</a
+					>
+				</p>
+			</div>
+			{% endif %} {% endfor %}
+		</div>
+	</div>
+</section>
+
+{% endblock %}

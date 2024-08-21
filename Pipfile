@@ -9,6 +9,7 @@ pillow = "*"
 django-crispy-forms = "*"
 django-jazzmin = "*"
 whitenoise = "*"
+psycopg2 = "*"
 
 [dev-packages]
 

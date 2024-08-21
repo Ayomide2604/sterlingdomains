@@ -1,0 +1,54 @@
+<html>
+	<body style="font-family: Arial, sans-serif; margin: 0; padding: 0">
+		<section
+			id="email-content"
+			style="background-color: #f7f7f7; padding: 20px"
+		>
+			<div
+				class="container"
+				style="max-width: 600px; margin: 0 auto; padding: 20px"
+			>
+				<h1 style="color: #34c759; font-size: 24px; margin-bottom: 10px">
+					New Enquiry
+				</h1>
+				<div class="row" style="margin-bottom: 20px">
+					<div
+						class="col-md-6"
+						style="
+							padding: 10px;
+							background-color: #e5f7f7;
+							border: 1px solid #c6e2b5;
+						"
+					>
+						<p style="margin-bottom: 10px"><strong>Name:</strong> {{ name }}</p>
+						<p style="margin-bottom: 10px">
+							<strong>Phone:</strong> {{ phone }}
+						</p>
+					</div>
+					<div
+						class="col-md-6"
+						style="
+							padding: 10px;
+							background-color: #e5f7f7;
+							border: 1px solid #c6e2b5;
+						"
+					>
+						<p style="margin-bottom: 10px">
+							<strong>Email:</strong> {{ email }}
+						</p>
+					</div>
+				</div>
+				<div
+					class="message"
+					style="background-color: #fff; padding: 20px; border: 1px solid #ddd"
+				>
+					<p style="margin-bottom: 10px"><strong>Message:</strong></p>
+					<p>{{ message }}</p>
+				</div>
+				<p style="color: #337ab7; font-size: 16px; margin-top: 20px">
+					Thank you for your enquiry. We will get back to you soon.
+				</p>
+			</div>
+		</section>
+	</body>
+</html>
